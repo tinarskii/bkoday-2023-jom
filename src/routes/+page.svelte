@@ -1,11 +1,12 @@
 <script>
 	import { onDestroy, tick } from 'svelte';
 
+let name = "จอม";
 	let age = 0;
 
 	function updateAge() {
 		// calculate age based on birthdate and time
-		const birthDateTime = new Date('2008-05-02T12:30:00'); // set birth date and time
+		const birthDateTime = new Date('2009-05-03T12:30:00'); // set birth date and time
 		const now = new Date(); // get current date and time
 		const ageInMs = now.getTime() - birthDateTime.getTime(); // calculate age in milliseconds
 		let newAge = ageInMs / (1000 * 60 * 60 * 24 * 365); // convert milliseconds to years, rounding to nearest year
@@ -42,19 +43,15 @@
 			<div class="image" />
 
 			<div>
-				<h2>แฮปปี้เบิร์ดเดย์ 🎂</h2>
+				<h2>แฮปปี้เบิร์ดเดย์ {name} 🎂</h2>
 				<h1><span class="age">{age.toFixed(9)}</span> ขวบแล้ว</h1>
 			</div>
 		</div>
 
 		<div class="content">
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nesciunt quasi distinctio
-				accusamus necessitatibus ex quos facere sint consequuntur quas iste, temporibus deleniti
-				sequi! Ipsa totam quo vitae ut consequuntur. Lorem ipsum dolor sit amet consectetur
-				adipisicing elit. Ratione ipsa omnis vitae possimus voluptatum pariatur officia quia,
-				numquam, quas corrupti sapiente minus sunt saepe harum, rem consequuntur laudantium est!
-				Velit.
+				เด็กเกย์ห้องหนึ่ง ในที่สุดก็อายุ {Math.trunc(age)} ขวบแล้ว (ไม่น่าโตมาเลย) เด็กหนุ่มผู้แปรผันของกาลเวลา
+				ทำลายทุกขีดจำกัดของการเอากับเพื่อน และกฏของห้องหนึ่ง เป็นน่าที่ยินดีอย่างยิ่งในคำคืนของวันนี้
 			</p>
 		</div>
 	</div>
@@ -78,8 +75,13 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		
 
-		background: $primary;
+		background-image: url('./jom.png');
+		background-repeat: none;
+		background-size: cover;
+		background-position: center;
+
 
 		.title {
 			font-size: 400;
@@ -98,7 +100,7 @@
 			.image {
 				flex: 1 1 auto;
 				min-width: 100px;
-				min-height: 100px;
+				min-height: 150px;
 				background-image: url('/cake.png');
 				background-size: contain;
 				background-repeat: no-repeat;
